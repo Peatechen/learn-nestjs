@@ -18,13 +18,13 @@ export class CatService {
     return this.catRepository.findOne(id);
   }
 
-  create(): Promise<Cat> {
-    const user = new Cat();
-    user.firstName = 'chen';
-    user.lastName = 'pp';
-    user.id = 2;
+  create(newCat: Cat): Promise<Cat> {
+    const cat = new Cat();
+    cat.firstName = newCat.firstName;
+    cat.lastName = newCat.lastName;
+    cat.id = newCat.id;
 
-    return this.catRepository.save(user);
+    return this.catRepository.save(cat);
   }
 
   async remove(id: number): Promise<void> {
